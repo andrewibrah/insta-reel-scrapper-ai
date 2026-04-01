@@ -1,4 +1,4 @@
-# ReelInsights AI (Insta-Reel-Scraper-AI)
+# Reel-Insights AI (Insta-Reel-Scraper-AI)
 
 An intelligent full-stack application that transforms short-form video content (Instagram Reels, YouTube Shorts) into structured, actionable insights using OpenAI's Whisper and GPT generative language models.
 
