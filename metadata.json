@@ -1,0 +1,5 @@
+{
+  "name": "Local Reel Processor",
+  "description": "A local tool that takes a pasted Reel link, a user question, or a requested output format, then returns a useful result.",
+  "requestFramePermissions": []
+}
