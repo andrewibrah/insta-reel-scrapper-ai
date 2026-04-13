@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Loader2, Link as LinkIcon, FileText, ListOrdered, BookOpen, HelpCircle, FileAudio } from "lucide-react";
 import ReactMarkdown from "react-markdown";
+import { Analytics } from "@vercel/analytics/react";
 
 type Mode = "summary" | "steps" | "guide" | "transcript" | "qa";
 
@@ -44,8 +45,10 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-50 p-4 md:p-8 font-sans text-neutral-900">
-      <div className="max-w-3xl mx-auto space-y-8">
+    <>
+      <Analytics />
+      <div className="min-h-screen bg-neutral-50 p-4 md:p-8 font-sans text-neutral-900">
+        <div className="max-w-3xl mx-auto space-y-8">
         <header className="space-y-2">
           <h1 className="text-3xl font-bold tracking-tight">Local Reel Processor</h1>
           <p className="text-neutral-500">
@@ -162,5 +165,6 @@ export default function App() {
         )}
       </div>
     </div>
+    </>
   );
 }
