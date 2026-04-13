@@ -1,10 +1,19 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import youtubedl from "youtube-dl-exec";
+import { create as createYoutubeDl, constants as ytdlConstants } from "youtube-dl-exec";
 import OpenAI from "openai";
 import crypto from "crypto";
 import fs from "fs";
 import path from "path";
 import os from "os";
+
+// On Vercel (Linux), use the standalone yt-dlp binary downloaded during build.
+// That binary bundles its own Python runtime (PyInstaller), so it works without system Python.
+// Locally, fall back to the binary bundled with youtube-dl-exec.
+const binaryPath = process.env.VERCEL
+  ? path.join(process.cwd(), "bin", "yt-dlp")
+  : ytdlConstants.YOUTUBE_DL_PATH;
+
+const youtubedl = createYoutubeDl(binaryPath);
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {

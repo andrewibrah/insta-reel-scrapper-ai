@@ -1,10 +1,11 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "node scripts/setup-ytdlp.mjs && npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
   "functions": {
     "api/process.ts": {
-      "maxDuration": 60
+      "maxDuration": 60,
+      "includeFiles": "bin/**"
     }
   },
   "rewrites": [
